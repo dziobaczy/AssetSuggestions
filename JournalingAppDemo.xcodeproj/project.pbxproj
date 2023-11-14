@@ -7,17 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A02F5FE2B03BD2600CCDC13 /* SuggestedAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A02F5FD2B03BD2600CCDC13 /* SuggestedAsset.swift */; };
+		8A02F6002B03BD4600CCDC13 /* SuggestedAsset+JournalingSuggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A02F5FF2B03BD4600CCDC13 /* SuggestedAsset+JournalingSuggestion.swift */; };
+		8A02F6022B03BD6600CCDC13 /* SuggestedAsset+Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A02F6012B03BD6600CCDC13 /* SuggestedAsset+Mocks.swift */; };
+		8A02F6042B03BF4A00CCDC13 /* TestingJournalingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A02F6032B03BF4A00CCDC13 /* TestingJournalingView.swift */; };
 		8A26471C2AF025B500A583B8 /* JournalingAppDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A26471B2AF025B500A583B8 /* JournalingAppDemoApp.swift */; };
-		8A26471E2AF025B500A583B8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A26471D2AF025B500A583B8 /* ContentView.swift */; };
 		8A2647202AF025B600A583B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A26471F2AF025B600A583B8 /* Assets.xcassets */; };
 		8A2647232AF025B600A583B8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A2647222AF025B600A583B8 /* Preview Assets.xcassets */; };
 		8A26472C2AF0294200A583B8 /* JournalingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A26472B2AF0294200A583B8 /* JournalingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8A02F5FD2B03BD2600CCDC13 /* SuggestedAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedAsset.swift; sourceTree = "<group>"; };
+		8A02F5FF2B03BD4600CCDC13 /* SuggestedAsset+JournalingSuggestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SuggestedAsset+JournalingSuggestion.swift"; sourceTree = "<group>"; };
+		8A02F6012B03BD6600CCDC13 /* SuggestedAsset+Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SuggestedAsset+Mocks.swift"; sourceTree = "<group>"; };
+		8A02F6032B03BF4A00CCDC13 /* TestingJournalingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingJournalingView.swift; sourceTree = "<group>"; };
 		8A2647182AF025B500A583B8 /* JournalingAppDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JournalingAppDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A26471B2AF025B500A583B8 /* JournalingAppDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalingAppDemoApp.swift; sourceTree = "<group>"; };
-		8A26471D2AF025B500A583B8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8A26471F2AF025B600A583B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A2647222AF025B600A583B8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8A2647292AF0276F00A583B8 /* JournalingAppDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JournalingAppDemo.entitlements; sourceTree = "<group>"; };
@@ -38,6 +44,9 @@
 		8A02F5FC2B03BCEB00CCDC13 /* SuggestedAsset */ = {
 			isa = PBXGroup;
 			children = (
+				8A02F5FD2B03BD2600CCDC13 /* SuggestedAsset.swift */,
+				8A02F5FF2B03BD4600CCDC13 /* SuggestedAsset+JournalingSuggestion.swift */,
+				8A02F6012B03BD6600CCDC13 /* SuggestedAsset+Mocks.swift */,
 			);
 			path = SuggestedAsset;
 			sourceTree = "<group>";
@@ -65,7 +74,6 @@
 				8A26472A2AF0293900A583B8 /* JournalingSuggestions */,
 				8A2647292AF0276F00A583B8 /* JournalingAppDemo.entitlements */,
 				8A26471B2AF025B500A583B8 /* JournalingAppDemoApp.swift */,
-				8A26471D2AF025B500A583B8 /* ContentView.swift */,
 				8A26471F2AF025B600A583B8 /* Assets.xcassets */,
 				8A2647212AF025B600A583B8 /* Preview Content */,
 			);
@@ -84,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				8A26472B2AF0294200A583B8 /* JournalingView.swift */,
+				8A02F6032B03BF4A00CCDC13 /* TestingJournalingView.swift */,
 			);
 			path = JournalingSuggestions;
 			sourceTree = "<group>";
@@ -159,8 +168,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A26472C2AF0294200A583B8 /* JournalingView.swift in Sources */,
-				8A26471E2AF025B500A583B8 /* ContentView.swift in Sources */,
+				8A02F5FE2B03BD2600CCDC13 /* SuggestedAsset.swift in Sources */,
 				8A26471C2AF025B500A583B8 /* JournalingAppDemoApp.swift in Sources */,
+				8A02F6042B03BF4A00CCDC13 /* TestingJournalingView.swift in Sources */,
+				8A02F6022B03BD6600CCDC13 /* SuggestedAsset+Mocks.swift in Sources */,
+				8A02F6002B03BD4600CCDC13 /* SuggestedAsset+JournalingSuggestion.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

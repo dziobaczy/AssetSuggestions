@@ -6,11 +6,32 @@
 //
 
 import SwiftUI
+@MainActor
+final class JournalingViewModel: ObservableObject {
+    @Published private(set) var suggestedAssets: [SuggestedAsset] = []
+    @Published private(set) var errorMessage: String?
+
+    func added(_ assets: [SuggestedAsset]) {
+        self.suggestedAssets = assets
+    }
+}
+
 #if canImport(JournalingSuggestions)
+import SwiftUI
 import JournalingSuggestions
 
+private extension JournalingViewModel {
+    func add(_ suggestion: JournalingSuggestion) async {
+        do {
+            suggestedAssets = try await SuggestedAsset.assets(from: suggestion)
+        } catch {
+            errorMessage = error.localizedDescription
+        }
+    }
+}
+
 struct JournalingView: View {
-    @State var suggestionPhotos = [JournalingSuggestion.Photo]()
+    @ObservedObject var viewModel: JournalingViewModel
 
     var body: some View {
         VStack {
@@ -20,11 +41,9 @@ struct JournalingView: View {
                     .foregroundStyle(.white)
                     .background(RoundedRectangle(cornerRadius: 12).foregroundStyle(.purple))
             } onCompletion: { suggestion in
-                print(suggestion)
-                for item in suggestion.items {
-                    print(item)
+                Task { @MainActor in
+                    await viewModel.add(suggestion)
                 }
-                suggestionPhotos = await suggestion.content(forType: JournalingSuggestion.Photo.self)
             }
 
         }
