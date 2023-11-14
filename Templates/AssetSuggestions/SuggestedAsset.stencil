@@ -1,0 +1,68 @@
+#if canImport(JournalingSuggestions)
+import JournalingSuggestions
+#endif
+import Foundation
+import CoreLocation
+import HealthKit
+
+public enum SuggestedAsset: Hashable {
+    {% for type in types.structs where type.implements.SuggestedAssetMarker %}
+    {% if type.name|!contains:"Details" and type.name|!contains:"LocationGroup" %}
+    case {{ type.name|replace:"JournalingSuggestion.", ""|lowerFirstLetter }}(Suggested{{ type.name|replace:"JournalingSuggestion.", "" }})
+    {% endif %}
+    {% endfor %}
+}
+{% for type in types.structs where type.implements.SuggestedAssetMarker %}
+
+{% if type.name|!contains:"Details" and type.name|!contains:"LocationGroup" %}
+public struct {{ type.name|replace:"JournalingSuggestion.","Suggested" }}: Hashable {
+    {% for property in type.storedVariables %}
+    public let {{ property.name }}: {{ property.actualTypeName|replace:"JournalingSuggestions.JournalingSuggestion.","Suggested" }}
+    {% endfor %}
+    {% newline %}    {{ type.accessLevel }} init({% for var in type.variables|!static|!computed %}{{ var.name }}: {{ var.actualTypeName|replace:"JournalingSuggestions.JournalingSuggestion.","Suggested" }}{% if var.defaultValue %} = {{ var.defaultValue }}{% endif %}{% if not forloop.last %}, {% endif %}{% endfor %}) {
+    {% for var in type.variables|!static|!computed %}
+      self.{{ var.name }} = {{ var.name }}
+    {% endfor %}
+    }{% newline %}
+    #if canImport(JournalingSuggestions)
+    @available(iOS 17.2, *)
+    public init(_ asset: {{ type.globalName }}) { 
+        {% for property in type.storedVariables %}
+        {% if property.actualTypeName|contains:"JournalingSuggestion"  %}
+        {% if property.isArray %}
+        self.{{ property.name }} = asset.{{ property.name }}.map { .init($0) }
+        {% else %}
+        self.{{ property.name }} = .init(asset.{{ property.name }})
+        {% endif %}
+        {% else %}
+        self.{{ property.name }} = asset.{{ property.name }}
+        {% endif %}
+        {% endfor %}
+    }
+    #endif
+}
+{% elif type.name|contains:"Details" %}
+public extension {{ type.name|replace:"JournalingSuggestion.Workout.Details","SuggestedWorkout" }} { 
+struct {{ type.name|replace:"JournalingSuggestion.Workout.","" }}: Hashable  {
+    {% for property in type.storedVariables %}
+    public let {{ property.name }}: {{ property.actualTypeName }}
+    {% endfor %}
+    
+    {{ type.accessLevel }} init({% for var in type.variables|!static|!computed %}{{ var.name }}: {{ var.actualTypeName }}{% if var.defaultValue %} = {{ var.defaultValue }}{% endif %}{% if not forloop.last %}, {% endif %}{% endfor %}) {
+    {% for var in type.variables|!static|!computed %}
+    self.{{ var.name }} = {{ var.name }}
+    {% endfor %}
+    }{% newline %}
+    #if canImport(JournalingSuggestions)
+    @available(iOS 17.2, *)
+    public init?(_ details: {{ type.globalName }}?) {
+        guard let details else { return nil }
+        {% for property in type.storedVariables %}
+        self.{{ property.name }} = details.{{ property.name }}
+        {% endfor %}
+    }
+    #endif
+}
+}
+{% endif %}
+{% endfor %}

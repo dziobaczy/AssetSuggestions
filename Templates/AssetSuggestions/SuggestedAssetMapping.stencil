@@ -1,0 +1,26 @@
+#if canImport(JournalingSuggestions)
+import JournalingSuggestions
+
+@available(iOS 17.2, *)
+extension SuggestedAsset {    
+    public static func convert(
+        representation: any JournalingSuggestionAsset.Type,
+        in item: JournalingSuggestion.ItemContent
+    ) async throws -> SuggestedAsset? {
+    switch representation {
+    {% for type in types.structs where type.based.SuggestedAssetMarker %}
+    {% if type.name|!contains:"Details" and type.name|!contains:"LocationGroup" %}
+    {% set asset %}{{type.name|replace:"JournalingSuggestion.",""|lowerFirstLetter}}{% endset %}
+    case is {{ type.name }}.Type:
+        if let {{ asset }} = try await item.content(forType: {{ type.name }}.self) {
+            return .{{asset}}(.init({{asset}}))
+        }
+    {% endif %}
+    {% endfor %}
+    default:
+        return nil
+    }
+    return nil
+    }
+}
+#endif

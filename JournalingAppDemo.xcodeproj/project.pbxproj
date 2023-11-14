@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8A02F5FE2B03BD2600CCDC13 /* SuggestedAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A02F5FD2B03BD2600CCDC13 /* SuggestedAsset.swift */; };
-		8A02F6002B03BD4600CCDC13 /* SuggestedAsset+JournalingSuggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A02F5FF2B03BD4600CCDC13 /* SuggestedAsset+JournalingSuggestion.swift */; };
 		8A02F6022B03BD6600CCDC13 /* SuggestedAsset+Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A02F6012B03BD6600CCDC13 /* SuggestedAsset+Mocks.swift */; };
 		8A02F6042B03BF4A00CCDC13 /* TestingJournalingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A02F6032B03BF4A00CCDC13 /* TestingJournalingView.swift */; };
+		8A02F6062B03C55C00CCDC13 /* SuggestedAssetMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A02F6052B03C55C00CCDC13 /* SuggestedAssetMarker.swift */; };
+		8A02F60A2B03C6DD00CCDC13 /* SuggestedAssetMapping.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A02F6082B03C6DD00CCDC13 /* SuggestedAssetMapping.generated.swift */; };
+		8A02F60B2B03C6DD00CCDC13 /* SuggestedAsset.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A02F6092B03C6DD00CCDC13 /* SuggestedAsset.generated.swift */; };
+		8A02F60E2B03C8DC00CCDC13 /* SuggestedAsset+assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A02F60D2B03C8DC00CCDC13 /* SuggestedAsset+assets.swift */; };
 		8A26471C2AF025B500A583B8 /* JournalingAppDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A26471B2AF025B500A583B8 /* JournalingAppDemoApp.swift */; };
 		8A2647202AF025B600A583B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A26471F2AF025B600A583B8 /* Assets.xcassets */; };
 		8A2647232AF025B600A583B8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A2647222AF025B600A583B8 /* Preview Assets.xcassets */; };
@@ -18,10 +20,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8A02F5FD2B03BD2600CCDC13 /* SuggestedAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedAsset.swift; sourceTree = "<group>"; };
-		8A02F5FF2B03BD4600CCDC13 /* SuggestedAsset+JournalingSuggestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SuggestedAsset+JournalingSuggestion.swift"; sourceTree = "<group>"; };
 		8A02F6012B03BD6600CCDC13 /* SuggestedAsset+Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SuggestedAsset+Mocks.swift"; sourceTree = "<group>"; };
 		8A02F6032B03BF4A00CCDC13 /* TestingJournalingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingJournalingView.swift; sourceTree = "<group>"; };
+		8A02F6052B03C55C00CCDC13 /* SuggestedAssetMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedAssetMarker.swift; sourceTree = "<group>"; };
+		8A02F6082B03C6DD00CCDC13 /* SuggestedAssetMapping.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestedAssetMapping.generated.swift; sourceTree = "<group>"; };
+		8A02F6092B03C6DD00CCDC13 /* SuggestedAsset.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestedAsset.generated.swift; sourceTree = "<group>"; };
+		8A02F60D2B03C8DC00CCDC13 /* SuggestedAsset+assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SuggestedAsset+assets.swift"; sourceTree = "<group>"; };
 		8A2647182AF025B500A583B8 /* JournalingAppDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JournalingAppDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A26471B2AF025B500A583B8 /* JournalingAppDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalingAppDemoApp.swift; sourceTree = "<group>"; };
 		8A26471F2AF025B600A583B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -41,14 +45,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8A02F5FC2B03BCEB00CCDC13 /* SuggestedAsset */ = {
+		8A02F5FC2B03BCEB00CCDC13 /* AssetSuggestions */ = {
 			isa = PBXGroup;
 			children = (
-				8A02F5FD2B03BD2600CCDC13 /* SuggestedAsset.swift */,
-				8A02F5FF2B03BD4600CCDC13 /* SuggestedAsset+JournalingSuggestion.swift */,
+				8A02F60C2B03C8CD00CCDC13 /* Helpers */,
 				8A02F6012B03BD6600CCDC13 /* SuggestedAsset+Mocks.swift */,
+				8A02F6052B03C55C00CCDC13 /* SuggestedAssetMarker.swift */,
 			);
-			path = SuggestedAsset;
+			path = AssetSuggestions;
+			sourceTree = "<group>";
+		};
+		8A02F6072B03C6DD00CCDC13 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				8A02F6082B03C6DD00CCDC13 /* SuggestedAssetMapping.generated.swift */,
+				8A02F6092B03C6DD00CCDC13 /* SuggestedAsset.generated.swift */,
+			);
+			name = Generated;
+			path = AssetSuggestions/Generated;
+			sourceTree = "<group>";
+		};
+		8A02F60C2B03C8CD00CCDC13 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				8A02F60D2B03C8DC00CCDC13 /* SuggestedAsset+assets.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		8A26470F2AF025B500A583B8 = {
@@ -70,7 +92,8 @@
 		8A26471A2AF025B500A583B8 /* JournalingAppDemo */ = {
 			isa = PBXGroup;
 			children = (
-				8A02F5FC2B03BCEB00CCDC13 /* SuggestedAsset */,
+				8A02F6072B03C6DD00CCDC13 /* Generated */,
+				8A02F5FC2B03BCEB00CCDC13 /* AssetSuggestions */,
 				8A26472A2AF0293900A583B8 /* JournalingSuggestions */,
 				8A2647292AF0276F00A583B8 /* JournalingAppDemo.entitlements */,
 				8A26471B2AF025B500A583B8 /* JournalingAppDemoApp.swift */,
@@ -168,11 +191,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A26472C2AF0294200A583B8 /* JournalingView.swift in Sources */,
-				8A02F5FE2B03BD2600CCDC13 /* SuggestedAsset.swift in Sources */,
+				8A02F60E2B03C8DC00CCDC13 /* SuggestedAsset+assets.swift in Sources */,
 				8A26471C2AF025B500A583B8 /* JournalingAppDemoApp.swift in Sources */,
 				8A02F6042B03BF4A00CCDC13 /* TestingJournalingView.swift in Sources */,
+				8A02F60A2B03C6DD00CCDC13 /* SuggestedAssetMapping.generated.swift in Sources */,
+				8A02F60B2B03C6DD00CCDC13 /* SuggestedAsset.generated.swift in Sources */,
 				8A02F6022B03BD6600CCDC13 /* SuggestedAsset+Mocks.swift in Sources */,
-				8A02F6002B03BD4600CCDC13 /* SuggestedAsset+JournalingSuggestion.swift in Sources */,
+				8A02F6062B03C55C00CCDC13 /* SuggestedAssetMarker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,0 +1,8 @@
+configurations:
+    - sources:
+        # This can be pointed to new iOS later once the JournalingSuggestions is extened (or we can add a makefile command to inject that path)
+        - /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.2.sdk/System/Library/Frameworks/JournalingSuggestions.framework
+        - JournalingAppDemo/AssetSuggestions/SuggestedAssetMarker.swift
+      templates:
+        - Templates/AssetSuggestions/
+      output: JournalingAppDemo/AssetSuggestions/Generated/
